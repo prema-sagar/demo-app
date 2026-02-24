@@ -24,15 +24,7 @@ jobs:
         run: npm ci
 
       - name: Verify build
-        run: |
-          node -e "require('./src/math')" && echo "✅ Build successful!"
-
-      - name: Upload node_modules artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-modules
-          path: node_modules/
-          retention-days: 1
+        run: node -e "require('./src/math')" && echo "✅ Build successful!"
 
   test-and-quality:
     name: 🧪 Test & Quality Gate
@@ -50,11 +42,8 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Download node_modules artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: node-modules
-          path: node_modules/
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run tests with coverage
         run: npm test
