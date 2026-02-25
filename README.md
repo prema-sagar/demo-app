@@ -6,15 +6,7 @@ A complete CI/CD pipeline using GitHub Actions, SonarCloud Quality Gates, and Do
 
 
 
----
-
-
-
 \## Pipeline Flow
-
-
-
-```
 
 Push Code to GitHub
 
